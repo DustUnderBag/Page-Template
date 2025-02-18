@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
    plugins: [
      new HtmlWebpackPlugin({
        title: 'Production',
+       template: "./src/template.html",
      }),
    ],
    output: {
