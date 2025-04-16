@@ -8,7 +8,7 @@ export default [
   pluginJs.configs.recommended,
   {
     files: ["src/**/*.js"],
-    ignores: ["**/*.config.js"],
+    ignores: ["**/*.config.js", "webpack.*.js"],
     rules: {
       "no-unused-vars": "warn",
       "no-undef": "warn",
