@@ -1,11 +1,14 @@
 import globals from "globals";
+import { defineConfig } from "eslint/config";
 import pluginJs from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [
+export default defineConfig([
   { languageOptions: { globals: globals.browser } },
+
   pluginJs.configs.recommended,
+
   {
     files: ["src/**/*.js"],
     ignores: ["**/*.config.js", "webpack.*.js"],
@@ -15,4 +18,18 @@ export default [
     },
   },
   eslintConfigPrettier,
-];
+
+  //Jest
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+    rules: {
+      "no-unused-vars": "warn",
+      "no-undef": "warn",
+    },
+  },
+]);
